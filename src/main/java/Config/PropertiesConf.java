@@ -18,6 +18,7 @@ public class PropertiesConf {
     String password = null;
     String encrypting = null;
     String loginTimeOut = null;
+    String trustServerCertificate = null;
 
     @Override
     public String toString() {
@@ -27,12 +28,16 @@ public class PropertiesConf {
     public PropertiesConf() {
         try {
 
-
-            Properties proper = new Properties();
+            //  D:\PROYECTOS\Java\javaSwingCrudSqlServer\src\main\java\Config\properties.properties
+            /*  Properties proper = new Properties();
             ClassLoader classLoader = getClass().getClassLoader();
-            InputStream inputStream = classLoader.getResourceAsStream("Config/properties.properties");
+            InputStream inputStream = classLoader.getResourceAsStream("config/properties.properties");
+            proper.load(inputStream);*/
+            Properties proper = new Properties();
+            String filePath = "D:/PROYECTOS/Java/javaSwingCrudSqlServer/src/main/java/Config/properties.properties";
+            InputStream inputStream = new FileInputStream(filePath);
             proper.load(inputStream);
-            
+
             this.dataBase = proper.getProperty("dataBase");
             this.hostName = proper.getProperty("host");
             this.port = proper.getProperty("port");
@@ -40,6 +45,7 @@ public class PropertiesConf {
             this.password = proper.getProperty("password");
             this.encrypting = proper.getProperty("encrypting");
             this.loginTimeOut = proper.getProperty("loginTimeout");
+            this.trustServerCertificate = proper.getProperty("trustServerCertificate");
 
         } catch (IOException e) {
             System.err.println("" + e.getMessage());
@@ -101,6 +107,14 @@ public class PropertiesConf {
 
     public void setLoginTimeOut(String loginTimeOut) {
         this.loginTimeOut = loginTimeOut;
+    }
+
+    public String getTrustServerCertificate() {
+        return trustServerCertificate;
+    }
+
+    public void setTrustServerCertificate(String trustServerCertificate) {
+        this.trustServerCertificate = trustServerCertificate;
     }
 
 }

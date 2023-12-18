@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 /**
  *
  * @author FRANCIS MCH
@@ -23,10 +22,9 @@ public class Connections {
     public static Connection conn = null;
     public Statement st = null;
     public ResultSet rs = null;
-    public static String usu, psw, host, db, url;
 
     public Connections() {
-       getSQLConnection();
+        getSQLConnection();
     }
 
     public void getSQLConnection() {
@@ -36,8 +34,10 @@ public class Connections {
                 + "database=" + prop.getDataBase() + ";"
                 + "user=" + prop.getUser() + ";"
                 + "password=" + prop.getPassword() + ";"
-                + "encrypt=" + prop.getEncrypting() + ";"
-                + "loginTimeout=" + prop.getLoginTimeOut() + ";";
+                + "encrypting=" + prop.getEncrypting() + ";"
+                + "loginTimeout=" + prop.getLoginTimeOut() + ";"
+                + "trustServerCertificate=" + prop.getTrustServerCertificate()
+                + ";";
 
         try {
             conn = DriverManager.getConnection(connectionUrl);

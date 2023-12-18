@@ -53,6 +53,11 @@ public class Category {
     public void setDateUodate(LocalDate dateUodate) {
         this.dateUodate = dateUodate;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" + "categoryID=" + categoryID + ", categoryName=" + categoryName + ", dateCreate=" + dateCreate + ", dateUodate=" + dateUodate + '}';
+    }
     
     
     

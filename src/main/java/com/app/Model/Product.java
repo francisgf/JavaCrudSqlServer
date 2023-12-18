@@ -1,12 +1,14 @@
 package com.app.Model;
 
 import java.time.LocalDate;
+import java.util.List;
+
 /**
  *
  * @author FRANCIS MCH
  */
 public class Product {
-   
+
     private int productID;
     private String productName;
     private double productPrice;
@@ -14,8 +16,8 @@ public class Product {
     private LocalDate dateCreate;
     private char status;
 
-    public Product (){
-        
+    public Product() {
+
     }
 
     public char getStatus() {
@@ -33,7 +35,7 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
-    
+
     public int getProductID() {
         return productID;
     }
@@ -66,8 +68,15 @@ public class Product {
         this.dateCreate = dateCreate;
     }
 
+    public void toStringArray(List<Product> listProduc) {
 
-    
-    
-    
+        for (int i = 0; i < listProduc.size(); i++) {
+            int count = 0;
+            count++;
+            System.out.println(count + "Product{" + "productID=" + productID + ", productName=" + productName + ", productPrice=" + productPrice + ", category=" + category.getCategoryName() + ", dateCreate=" + dateCreate + ", status=" + status + '}');
+
+        }
+
+    }
+
 }

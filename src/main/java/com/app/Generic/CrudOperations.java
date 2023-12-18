@@ -14,15 +14,16 @@ import java.util.List;
  */
 public interface CrudOperations<T> {
 
-    T insert(T Object);
+    boolean insert(T Object);
 
     T update(T Object);
 
-    List<T> selectAll();
+    List<T> getAll();
 
     T getById(int id);
 
-    T getByName(String name);
+    List<T> getByName(String name);
 
-    void delteById(int id);
+    boolean delteById(int id);
+
 }
